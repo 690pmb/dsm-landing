@@ -25,6 +25,18 @@ The list of applications shown in the home page can be configured in the [applic
 
 Without recompiling nginx on the Synology NAS one can setup a machine in the local network and use the synology NAS directly as a reverse proxy (https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/application_appportalias).
 
+### Deployment
+
+You can directly deploy the app using docker with the following command:  
+```bash
+docker run -e TITLE="Welcome to my landing page" -e BASE_URL=.my.domain.com -d -p 8080:8080 -t pmb69/dsm-landing:0.1.1
+```
+See [configuration](README.md#Configuration) for the `-e` parameters. 
+
+The landing page is now available at `localhost:8080`
+
+If you're not running on a Raspberry pi, you could be asked to add this parameter: `--platform linux/arm/v7`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -53,3 +65,9 @@ docker run -e TITLE="Welcome to my landing page" -e BASE_URL=.my.domain.com -d -
 
 The landing page is now available at `localhost:8080`
 
+## Docker build
+
+You can build a docker image of the application by running the following:  
+```bash
+docker build --build-arg GITHUB_DIR=69pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=master -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/master/docker/ng-build/Dockerfile
+```
