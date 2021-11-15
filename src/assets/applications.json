@@ -1,0 +1,54 @@
+[
+  {
+    "name": "AllMovies",
+    "icon": "ticket-alt"
+  },
+  {
+    "name": "NgMusic",
+    "icon": "music"
+  },
+  {
+    "name": "Admin",
+    "icon": "cogs"
+  },
+  {
+    "name": "Moments",
+    "icon": "atom"
+  },
+  {
+    "name": "Videos",
+    "icon": "file-video",
+    "url": "video"
+  },
+  {
+    "name": "Download",
+    "icon": "download"
+  },
+  {
+    "name": "Files",
+    "icon": "file-alt",
+    "url": "file"
+  },
+  {
+    "name": "Photos",
+    "icon": "camera-retro",
+    "url": "photo"
+  },
+  {
+    "name": "Dsm-Landing",
+    "icon": "code-branch",
+    "url": "https://github.com/69pmb/dsm-landing"
+  },
+  {
+    "name": "Deluge",
+    "icon": "download"
+  },
+  {
+    "name": "Radarr",
+    "icon": "film"
+  },
+  {
+    "name": "Sonarr",
+    "icon": "tv"
+  }
+]
