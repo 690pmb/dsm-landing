@@ -13,15 +13,13 @@ The [WebStation](https://www.synology.com/en-global/dsm/packages/WebStation) pac
 The [Environment](./src/environments) files allows to configure the applications as follow:
 
 * `title`: Specify the title of the application
-* `baseUrl`: Specify the base url of the station (e.g. if accessing from outside the local network)
+* `baseUrl`: Specify the base url of the station (must starts with a dot)
 
-The list of applications shown in the home page can be configured in the [application.ts](./src/app/application.ts), the structure is as follows:
+The list of applications shown in the home page can be configured in the [applications.json](./src/assets/applications.json), the structure is as follows:
 
 * `name`: The name of the application
-* `icon`: The icon used for the application (See https://fontawesome.com/icons)
-* `route`: The angular route used for the application; At the moment only the `redirect` route (which uses the url parameter) is available
-* `url`: The url of the application
-* `disabled`: If true the application will be disabled (the button will still be shown but not enabled)
+* `icon`: The icon used for the application (See https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free)
+* `url`: The url of the application, none to use the name in lowercase. Final url is the concatenation of `url` with `baseUrl` unless `url` contains `http`, then `url` is only used.
 
 Without recompiling nginx on the Synology NAS one can setup a machine in the local network and use the synology NAS directly as a reverse proxy (https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/application_appportalias).
 
@@ -29,13 +27,21 @@ Without recompiling nginx on the Synology NAS one can setup a machine in the loc
 
 You can directly deploy the app using docker with the following command:  
 ```bash
-docker run -e TITLE="Welcome to my landing page" -e BASE_URL=.my.domain.com -d -p 8080:8080 -t pmb69/dsm-landing:0.1.1
+docker run --name dsm-landing -e TITLE='"Welcome to my landing page"' -e BASE_URL='".my.domain.com"' -d -p 8080:8080 -t pmb69/dsm-landing:0.1.2
 ```
-See [configuration](README.md#Configuration) for the `-e` parameters. 
+You could be asked to add this parameter: `--platform linux/arm/v7`  
+See [configuration](README.md#Configuration) for the `-e` parameters.  
+
+To personalize the shown applications, write your own `applications.json` file and run the following:  
+```bash
+ docker cp /absolute/file/path/to/applications.json dsm-landing:/usr/share/nginx/html/assets
+```
+To personalize the background image run:  
+```bash
+ docker cp /absolute/file/path/to/kali.png dsm-landing:/usr/share/nginx/html/assets
+```
 
 The landing page is now available at `localhost:8080`
-
-If you're not running on a Raspberry pi, you could be asked to add this parameter: `--platform linux/arm/v7`
 
 ## Development server
 
@@ -45,29 +51,20 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build (which will automatically use the [environment.prod.ts](./src/environments/environment.prod.ts) configuration file).
 
-## Docker deployment
-
-Once built the project, you can start a Docker container using:
-```bash
-docker run --name dsm-landing -d -v /path/to/dsm-landing/dist:/usr/share/nginx/html -t pmb69/ng-nginx:0.1.0
-```
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Deployment
-
-You can deploy the app using docker with the following commands:  
-```bash
-docker run -e TITLE="Welcome to my landing page" -e BASE_URL=.my.domain.com -d -p 8080:8080 -t pmb69/dsm-landing:0.1.0
-```
-
-The landing page is now available at `localhost:8080`
 
 ## Docker build
 
 You can build a docker image of the application by running the following:  
 ```bash
 docker build --build-arg GITHUB_DIR=69pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=master -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/master/docker/ng-build/Dockerfile
+```
+
+## Docker development deployment
+
+Once built the project, you can start a Docker container using:
+```bash
+docker run --name dsm-landing -d -v /path/to/dsm-landing/dist:/usr/share/nginx/html -t pmb69/ng-nginx:0.1.1
 ```
