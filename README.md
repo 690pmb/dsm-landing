@@ -22,6 +22,7 @@ The list of applications shown in the home page can be configured in the [applic
 You can either specify the complete tag, e.g. for the github logo `fab fa-github-square`, or for solid icons for instance only `cogs`.
 * `url`: The url of the application, none to use the name in lowercase.  
 Final url is the concatenation of `url` with `baseUrl` unless `url` contains `http`, then `url` is only used.
+* `color`: The hex color code for the application button, e.g. `8AC8DE` without the hash mark.
 
 Without recompiling nginx on the Synology NAS one can setup a machine in the local network and use the synology NAS directly as a reverse proxy (https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/application_appportalias).
 
@@ -29,7 +30,7 @@ Without recompiling nginx on the Synology NAS one can setup a machine in the loc
 
 You can directly deploy the app using docker with the following command:  
 ```bash
-docker run --name dsm-landing -e TITLE='"Welcome to my landing page"' -e BASE_URL='".my.domain.com"' -d -p 8080:8080 -t pmb69/dsm-landing:0.1.2
+docker run --name dsm-landing -e TITLE='"Welcome to my landing page"' -e BASE_URL='".my.domain.com"' -d -p 8080:8080 -t pmb69/dsm-landing:0.1.3
 ```
 You could be asked to add this parameter: `--platform linux/arm/v7`  
 See [configuration](README.md#Configuration) for the `-e` parameters.  

@@ -1,54 +1,66 @@
 [
   {
     "name": "AllMovies",
-    "icon": "ticket-alt"
+    "icon": "ticket-alt",
+    "color": "B9DEEB"
   },
   {
     "name": "NgMusic",
-    "icon": "music"
+    "icon": "music",
+    "color": "A1D3E5"
   },
   {
     "name": "Admin",
-    "icon": "cogs"
+    "icon": "cogs",
+    "color": "8AC8DE"
   },
   {
     "name": "Moments",
-    "icon": "atom"
+    "icon": "atom",
+    "color": "73BDD8"
   },
   {
     "name": "Videos",
     "icon": "file-video",
-    "url": "video"
+    "url": "video",
+    "color": "5BB2D1"
   },
   {
     "name": "Download",
-    "icon": "download"
+    "icon": "download",
+    "color": "44A7CB"
   },
   {
     "name": "Files",
     "icon": "file-alt",
-    "url": "file"
+    "url": "file",
+    "color": "2D9CC4"
   },
   {
     "name": "Photos",
     "icon": "camera-retro",
-    "url": "photo"
+    "url": "photo",
+    "color": "1691BE"
   },
   {
     "name": "Dsm-Landing",
     "icon": "fab fa-github-square",
-    "url": "https://github.com/69pmb/dsm-landing"
+    "url": "https://github.com/69pmb/dsm-landing",
+    "color": "1382AB"
   },
   {
     "name": "Deluge",
-    "icon": "fab fa-mixcloud"
+    "icon": "fab fa-mixcloud",
+    "color": "117498"
   },
   {
     "name": "Radarr",
-    "icon": "film"
+    "icon": "film",
+    "color": "0F6585"
   },
   {
     "name": "Sonarr",
-    "icon": "tv"
+    "icon": "tv",
+    "color": "0D5772"
   }
 ]

@@ -1,7 +1,0 @@
-@mixin color-btn($color) {
-  background-color: rgba($color, 0.8);
-
-  &:hover {
-      background-color: rgba($color, 0.4);
-  }
-}
