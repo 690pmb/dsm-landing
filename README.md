@@ -10,7 +10,7 @@ The [WebStation](https://www.synology.com/en-global/dsm/packages/WebStation) pac
 
 ### Configuration
 
-The [Environment](./src/environments) files allows to configure the applications as follow:
+The [Environment](./src/assets/env.js) files allows to configure the applications as follow:
 
 * `title`: Specify the title of the application
 * `baseUrl`: Specify the base url of the station (must starts with a dot)
@@ -18,8 +18,10 @@ The [Environment](./src/environments) files allows to configure the applications
 The list of applications shown in the home page can be configured in the [applications.json](./src/assets/applications.json), the structure is as follows:
 
 * `name`: The name of the application
-* `icon`: The icon used for the application (See https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free)
-* `url`: The url of the application, none to use the name in lowercase. Final url is the concatenation of `url` with `baseUrl` unless `url` contains `http`, then `url` is only used.
+* `icon`: The icon used for the application using [Fontawesome](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free).  
+You can either specify the complete tag, e.g. for the github logo `fab fa-github-square`, or for solid icons for instance only `cogs`.
+* `url`: The url of the application, none to use the name in lowercase.  
+Final url is the concatenation of `url` with `baseUrl` unless `url` contains `http`, then `url` is only used.
 
 Without recompiling nginx on the Synology NAS one can setup a machine in the local network and use the synology NAS directly as a reverse proxy (https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/application_appportalias).
 
@@ -49,7 +51,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build (which will automatically use the [environment.prod.ts](./src/environments/environment.prod.ts) configuration file).
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run build` for a production build.
 
 ## Running unit tests
 

@@ -36,12 +36,12 @@
   },
   {
     "name": "Dsm-Landing",
-    "icon": "code-branch",
+    "icon": "fab fa-github-square",
     "url": "https://github.com/69pmb/dsm-landing"
   },
   {
     "name": "Deluge",
-    "icon": "download"
+    "icon": "fab fa-mixcloud"
   },
   {
     "name": "Radarr",

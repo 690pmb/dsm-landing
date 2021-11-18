@@ -17,5 +17,8 @@ export class ButtonComponent implements OnInit {
     if (!this.app.url.includes("http")) {
       this.app.url = `https://${this.app.url}${environment.baseUrl}`;
     }
+    this.app.icon = this.app.icon.includes(" ")
+      ? this.app.icon
+      : `fas fa-${this.app.icon}`;
   }
 }
