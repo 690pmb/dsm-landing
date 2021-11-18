@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { App } from "./../application";
-import { ConfigurationService } from "../configuration.service";
+import { Component, OnInit } from '@angular/core';
+import { App } from './../application';
+import { ConfigurationService } from '../configuration.service';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   apps: App[] = [];
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
       .getAll()
       .then((apps) => (this.apps = apps))
       .catch((err) =>
-        console.error("Error while getting configuration file", err)
+        console.error('Error while getting configuration file', err)
       );
   }
 }

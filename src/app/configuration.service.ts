@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { App } from "./application";
+import { App } from './application';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ConfigurationService {
   configurations: App[];
@@ -17,7 +17,7 @@ export class ConfigurationService {
         : resolve(
             new Promise<App[]>((resolve, reject) => {
               const xhr = new XMLHttpRequest();
-              xhr.open("GET", "./assets/applications.json");
+              xhr.open('GET', './assets/applications.json');
               xhr.send();
               xhr.onreadystatechange = () => {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -44,6 +44,6 @@ export class ConfigurationService {
   }
 
   private static isEmpty(str: string): boolean {
-    return !str || str.trim() === "";
+    return !str || str.trim() === '';
   }
 }

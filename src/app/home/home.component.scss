@@ -1,6 +1,5 @@
-@import '~bootstrap/scss/bootstrap-grid';
+@use '~bootstrap/scss/bootstrap-grid';
 @import '/src/styles/variables';
-@import '/src/styles/mixins';
 
 .btn-container {
   display: flex;
