@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
+import { Component } from "@angular/core";
+import { Title } from "@angular/platform-browser";
+import { environment } from "../environments/environment";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
+  timestamp = environment.date;
+
   constructor(titleService: Title) {
     titleService.setTitle(environment.title);
   }
