@@ -1,5 +1,4 @@
-@use '~bootstrap/scss/bootstrap-grid';
-@import '/src/styles/variables';
+@use '/src/styles/variables' as *;
 
 .btn-container {
   display: flex;

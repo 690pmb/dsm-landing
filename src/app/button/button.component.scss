@@ -1,5 +1,4 @@
-@use '~bootstrap/scss/bootstrap-grid';
-@import '~src/styles/variables';
+@use '/src/styles/variables' as var;
 
 :host {
   flex: 1 0 calc(25% - 10px);
@@ -7,38 +6,20 @@
   margin: 5px;
   min-width: 10em;
   height: 10em;
-  transition: height .3s, background-color .3s, opacity .3s;
-
-  @include bootstrap-grid.media-breakpoint-up(lg) {
-
-    &:hover {
-      height: 11em;
-    }
-  }
+  transition: height 0.3s, background-color 0.3s, opacity 0.3s;
 }
 
 a {
   border: none;
-  color: $icon-color;
+  color: var.$icon-color;
   border-radius: 0;
   padding: 0.75em;
   width: 100%;
   height: 100%;
-  font-weight: $font-weight-base;
+  font-weight: var.$font-weight-base;
 
-  &:not(.disabled):hover {
-    color: $icon-color-hover;
-
-    @include bootstrap-grid.media-breakpoint-up(lg) {
-      .icon + span {
-        margin-top: 3.1em;
-        transition: margin 0.3s;
-      }
-    }
-  }
-
-  &.disabled {
-    opacity: 1;
+  &:hover {
+    color: var.$icon-color-hover;
   }
 
   span {
@@ -48,7 +29,7 @@ a {
   .icon {
     display: block;
     padding: 1.4em 0;
-    background: $icon-bg-color;
+    background: var.$icon-bg-color;
   }
 
   .icon + span {
@@ -57,7 +38,7 @@ a {
   }
 }
 
-@media (max-width: 576px) {
+@include var.media() {
   :host {
     min-width: 6em;
     height: 8em;
@@ -65,5 +46,16 @@ a {
 
   .icon + span {
     margin-top: 0 !important;
+  }
+}
+
+@include var.media("lg", "min") {
+  :host:hover {
+    height: 11em;
+  }
+
+  a:hover .icon + span {
+    margin-top: 3.1em;
+    transition: margin 0.3s;
   }
 }

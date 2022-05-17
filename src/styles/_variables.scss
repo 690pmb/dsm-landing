@@ -1,4 +1,6 @@
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@use 'sass:map';
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 $font-weight-base: 300;
 $text-muted: #ffffff;
 $body-color: #1b3647;
@@ -6,5 +8,23 @@ $body-bg-overlay: linear-gradient(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
 $body-bg-image: url("/assets/kali.png");
 $header-bg-color: rgba(216, 216, 216, 0.341);
 $icon-color: #ffffff;
-$icon-bg-color: rgba(255,255,255,0.1);
+$icon-bg-color: rgba(255, 255, 255, 0.1);
 $icon-color-hover: #e9e9e9;
+$size: (
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@mixin media($value: "sm", $dir: "max") {
+  $v: map.get($size, $value);
+  @if ($v) {
+    @media (#{$dir}-width: $v) {
+      @content;
+    }
+  } @else {
+    @error "Invalid value: #{$value}";
+  }
+}
