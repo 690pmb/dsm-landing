@@ -30,11 +30,16 @@ a {
     display: block;
     padding: 1.4em 0;
     background: var.$icon-bg-color;
+
+    & + span {
+      margin-top: 2.1em;
+      transition: margin 0.3s;
+    }
   }
 
-  .icon + span {
-    margin-top: 2.1em;
-    transition: margin 0.3s;
+  .name {
+    text-overflow: "..";
+    overflow: hidden;
   }
 }
 
