@@ -10,11 +10,11 @@ The [WebStation](https://www.synology.com/en-global/dsm/packages/WebStation) pac
 
 ### Configuration
 
-The [Environment](./src/assets/env.js) files allows to configure the applications as follow:
+The [Configuration](./src/assets/configuration.json) file allows to configure the applications as follow:
 
 - `title`: Specify the title of the application
 - `baseUrl`: Specify the base url of the station (must starts with a dot)
-- `date`: Build date to display in the DOM
+- `date`: Build date to display in the DOM (for debugging purposes)
 
 The list of applications shown in the home page can be configured in the [applications.json](./src/assets/applications.json), the structure is as follows:
 
@@ -32,7 +32,7 @@ Without recompiling nginx on the Synology NAS one can setup a machine in the loc
 You can directly deploy the app using docker with the following command:
 
 ```bash
-docker run --name dsm-landing -e TITLE='"Welcome to my landing page"' -e BASE_URL='".my.domain.com"' -e DATE='"2020-03-04 12h03m12s"' -d -p 8080:8080 -t pmb69/dsm-landing:0.1.3
+docker run --name dsm-landing -e TITLE='"Welcome to my landing page"' -e BASE_URL='".my.domain.com"' -e ENV_VAR=true -d -p 8080:8080 -t pmb69/dsm-landing:0.1.4
 ```
 
 You could be asked to add this parameter: `--platform linux/arm/v7`  
@@ -60,21 +60,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run build` for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
 ## Docker build
 
 You can build a docker image of the application by running the following:
 
 ```bash
-docker build --build-arg GITHUB_DIR=69pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=master -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/master/docker/ng-build/Dockerfile
+docker build --build-arg GITHUB_DIR=690pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=master --build-arg ENV_VAR=true -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/main/docker/ng-build/Dockerfile
 ```
 
 ## Docker development deployment
 
-Once built the project, you can start a Docker container using:
+Once the project built, you can start a Docker container using:
 
 ```bash
 docker run --name dsm-landing -d -v /path/to/dsm-landing/dist:/usr/share/nginx/html -t pmb69/ng-nginx:0.1.1

@@ -4,9 +4,6 @@
 
 export const environment = {
   production: false,
-  baseUrl: window["env"]["baseUrl"] || "xxx",
-  title: window["env"]["title"] || "xxx",
-  date: "local",
 };
 
 /*

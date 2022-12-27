@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Title } from "@angular/platform-browser";
-import { environment } from "../environments/environment";
+import { ConfigurationService } from "./configuration.service";
 
 @Component({
   selector: "app-root",
@@ -8,9 +8,12 @@ import { environment } from "../environments/environment";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  timestamp = environment.date;
+  date!: string;
 
-  constructor(titleService: Title) {
-    titleService.setTitle(environment.title);
+  constructor(titleService: Title, configurationService: ConfigurationService) {
+    configurationService.getConfiguration().subscribe((conf) => {
+      titleService.setTitle(conf.title);
+      this.date = conf.date;
+    });
   }
 }

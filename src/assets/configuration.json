@@ -1,0 +1,5 @@
+{
+  "baseUrl": "{{BASE_URL}}",
+  "title": "{{TITLE}}",
+  "date": "{{DATE}}"
+}
