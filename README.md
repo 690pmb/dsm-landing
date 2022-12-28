@@ -1,3 +1,6 @@
+[![Quality](https://github.com/690pmb/dsm-landing/actions/workflows/quality.yml/badge.svg)](https://github.com/690pmb/dsm-landing/actions/workflows/quality.yml)
+[![Deploy](https://github.com/690pmb/dsm-landing/actions/workflows/deploy.yml/badge.svg)](https://github.com/690pmb/dsm-landing/actions/workflows/deploy.yml)
+
 # Synology DSM Landing Page
 
 Simple responsive [Angular](https://angular.io) application built with [Bootstrap](https://getbootstrap.com/) that functions as a landing page to access the [Synology DiskStation Manager](https://www.synology.com/en-us/dsm) services from a Synology NAS.
