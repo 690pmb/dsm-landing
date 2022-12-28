@@ -6,42 +6,47 @@ import {
   Input,
   OnInit,
   ViewChild,
-} from '@angular/core';
+} from "@angular/core";
 
-import { App } from '../application';
-import { environment } from '../../environments/environment';
+import { App } from "../application";
+import { ConfigurationService } from "../configuration.service";
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  selector: "app-button",
+  templateUrl: "./button.component.html",
+  styleUrls: ["./button.component.scss"],
 })
 export class ButtonComponent implements OnInit, AfterViewInit {
-  @ViewChild('name')
+  @ViewChild("name")
   name: ElementRef<HTMLElement>;
-  @HostListener('mouseover') onMouseEnter(): void {
-    this.updateBtnColor('0.4');
+  @HostListener("mouseover") onMouseEnter(): void {
+    this.updateBtnColor("0.4");
   }
-  @HostListener('mouseout') onMouseOut(): void {
-    this.updateBtnColor('0.8');
+  @HostListener("mouseout") onMouseOut(): void {
+    this.updateBtnColor("0.8");
   }
   @Input() app: App;
 
-  constructor(private elRef: ElementRef<HTMLElement>) {}
+  constructor(
+    private elRef: ElementRef<HTMLElement>,
+    private configurationService: ConfigurationService
+  ) {}
 
   ngOnInit(): void {
-    if (!this.app.url.includes('http')) {
-      this.app.url = `https://${this.app.url}${environment.baseUrl}`;
-    }
-    this.app.icon = this.app.icon.includes(' ')
+    this.configurationService.getConfiguration().subscribe((conf) => {
+      if (!this.app.url.includes("http")) {
+        this.app.url = `https://${this.app.url}${conf.baseUrl}`;
+      }
+    });
+    this.app.icon = this.app.icon.includes(" ")
       ? this.app.icon
       : `fas fa-${this.app.icon}`;
   }
 
   ngAfterViewInit(): void {
-    this.name.nativeElement.style.color = this.hexToRgb(this.app.color, '0.8');
-    this.name.nativeElement.style.filter = 'invert(100%)';
-    this.updateBtnColor('0.8');
+    this.name.nativeElement.style.color = this.hexToRgb(this.app.color, "0.8");
+    this.name.nativeElement.style.filter = "invert(100%)";
+    this.updateBtnColor("0.8");
   }
 
   updateBtnColor(alpha: string) {
@@ -58,7 +63,7 @@ export class ButtonComponent implements OnInit, AfterViewInit {
       const rgb: string[] = [];
       let i = 0;
       while (i < 3) {
-        rgb.push(Number('0x' + hex.slice(i * 2, (i + 1) * 2)).toString(10));
+        rgb.push(Number("0x" + hex.slice(i * 2, (i + 1) * 2)).toString(10));
         i++;
       }
       return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha})`;
