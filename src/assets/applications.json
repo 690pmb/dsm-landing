@@ -15,14 +15,13 @@
     "color": "8AC8DE"
   },
   {
-    "name": "Moments",
+    "name": "Portainer",
     "icon": "atom",
     "color": "73BDD8"
   },
   {
     "name": "Videos",
     "icon": "file-video",
-    "url": "video",
     "color": "5BB2D1"
   },
   {
@@ -37,30 +36,44 @@
     "color": "2D9CC4"
   },
   {
-    "name": "Photos",
-    "icon": "camera-retro",
-    "url": "photo",
+    "name": "RPi-Monitor",
+    "icon": "fab fa-watchman-monitoring",
+    "url": "rpi",
     "color": "1691BE"
   },
   {
-    "name": "Dsm-Landing",
-    "icon": "fab fa-github-square",
-    "url": "https://github.com/69pmb/dsm-landing",
+    "name": "Pi-Hole",
+    "icon": "fab fa-raspberry-pi",
+    "url": "http://pi.hole/admin",
     "color": "1382AB"
   },
   {
-    "name": "Deluge",
-    "icon": "fab fa-mixcloud",
+    "name": "Photos",
+    "icon": "camera-retro",
+    "url": "photo",
     "color": "117498"
   },
   {
-    "name": "Radarr",
-    "icon": "film",
+    "name": "Cook",
+    "icon": "cookie",
+    "url": "https://69pmb.github.io/Cook",
     "color": "0F6585"
   },
   {
-    "name": "Sonarr",
-    "icon": "tv",
+    "name": "DotFiles",
+    "icon": "code",
+    "url": "https://69pmb.github.io/DotFiles",
     "color": "0D5772"
+  },
+  {
+    "name": "Deluge",
+    "icon": "cloud-showers-heavy",
+    "color": "0B485F"
+  },
+  {
+    "name": "Weather",
+    "icon": "cloud-sun",
+    "url": "ngweather",
+    "color": "073242"
   }
 ]

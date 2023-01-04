@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - id: now
+        run: echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
+      - uses: 69pmb/deploy/workflow/deploy@main
+        with:
+          url: ${{ secrets.DEPLOY_URL }}
+          args: "TITLE,'Welcome%20to%20my%20NAS%20%21'@BASE_URL,${{ secrets.BASE_URL }}@DATE,${{ env.DATE }}"
+          confFile: "/usr/share/nginx/html/assets/configuration.json"
