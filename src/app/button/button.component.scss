@@ -1,8 +1,6 @@
-@use '/src/styles/variables' as var;
+@use "/src/styles/variables" as var;
 
 :host {
-  flex: 1 0 calc(25% - 10px);
-  max-width: calc(25% - 10px);
   margin: 5px;
   min-width: 10em;
   height: 10em;
@@ -36,11 +34,6 @@ a {
       transition: margin 0.3s;
     }
   }
-
-  .name {
-    text-overflow: "..";
-    overflow: hidden;
-  }
 }
 
 @include var.media() {
@@ -51,6 +44,13 @@ a {
 
   .icon + span {
     margin-top: 0 !important;
+  }
+}
+
+@include var.media("s", "min") {
+  :host {
+    flex: 1 0 calc(25% - 10px);
+    max-width: calc(25% - 10px);
   }
 }
 
