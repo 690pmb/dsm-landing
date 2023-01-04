@@ -68,7 +68,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 You can build a docker image of the application by running the following:
 
 ```bash
-docker build --build-arg GITHUB_DIR=690pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=master --build-arg ENV_VAR=true -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/main/docker/ng-build/Dockerfile
+docker build --build-arg GITHUB_DIR=690pmb --build-arg GITHUB_PROJECT=dsm-landing --build-arg GITHUB_HASH=main --build-arg ENV_VAR=true -t dsm-landing https://raw.githubusercontent.com/69pmb/Deploy/main/docker/ng-build/Dockerfile
 ```
 
 ## Docker development deployment
